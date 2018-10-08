@@ -1,0 +1,107 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManagement:
+    transition: FadeTransition()
+    Home:
+    Gender_Screen:
+    Height_Screen:
+    Weight_Screen:
+    Result_Screen:
+
+	
+<Home>:
+    name: 'home'
+    FloatLayout:
+        Button:
+            color: 1,1,1,1
+            background_color: 0,0,1,1
+            text: 'Next'
+            font_size: 40
+            size_hint: 0.2,0.1
+            pos_hint: {"right":0.9,"top":0.2} 
+            on_release: app.root.current = 'gender'
+        
+        Label:
+            markup: True
+            text: '[b]Body Mass Index Calculator[/b]'
+            font_size: 40
+             
+            
+<Gender_Screen>:
+    name: 'gender'
+    FloatLayout:
+        Button:
+            color: 1,1,1,1
+            background_color: 0,0,1,1
+            text: 'Next'
+            font_size: 40
+            size_hint: 0.2,0.1
+            pos_hint: {"right":0.9,"top":0.2}
+            on_release: app.root.current = 'height'
+        
+
+        Label:
+            markup: True
+            text: '[b]Gender[/b]'
+            font_size: 40
+
+
+<Height_Screen>:
+    name: 'height'
+    FloatLayout:
+        Button:
+            color: 1,1,1,1
+            background_color: 0,0,1,1
+            text: 'Next'
+            font_size: 40
+            size_hint: 0.2,0.1
+            pos_hint: {"right":0.9,"top":0.2}
+            on_release: app.root.current = 'weight'
+
+
+
+        
+        Label:
+            markup: True
+            text: '[b]Height[/b]'
+            font_size: 40
+
+
+<Weight_Screen>:
+    name: 'weight'
+    FloatLayout:
+        Button:
+            color: 1,1,1,1
+            background_color: 0,0,1,1
+            text: 'Next'
+            font_size: 40
+            size_hint: 0.2,0.1
+            pos_hint: {"right":0.9,"top":0.2}
+            on_release: app.root.current = 'result'
+
+
+
+        Label:
+            markup: True
+            text: '[b]Weight[/b]'
+            font_size: 40
+
+
+<Result_Screen>:
+    name: 'result'
+    FloatLayout:
+        Button:
+            color: 1,1,1,1
+            background_color: 0,0,1,1
+            text: 'Back to Home'
+            font_size: 40
+            size_hint: 0.32,0.1
+            pos_hint: {"right":0.9,"top":0.2}
+            on_release: app.root.current = 'home'
+
+
+        
+        Label:
+            markup: True
+            text: '[b]Result[/b]'
+            font_size: 40
