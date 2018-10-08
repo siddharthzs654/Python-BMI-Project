@@ -1,11 +1,11 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.core.window import Window
 
 
 
-
-class Home(Screen):
+class Home(Screen,Widget):
     pass
 
 class Gender_Screen(Screen):
