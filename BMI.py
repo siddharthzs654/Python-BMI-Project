@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 
 
@@ -29,6 +30,7 @@ presentation = Builder.load_file("support.kv")
 
 class MainApp(App):
     def build(self):
+        Window.clearcolor = (1, 1, 1, 1)
         return presentation
 
 MainApp().run()
