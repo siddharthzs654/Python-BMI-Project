@@ -11,6 +11,16 @@ ScreenManagement:
 	
 <Home>:
     name: 'home'
+
+
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
     FloatLayout:
         Button:
             color: 1,1,1,1
@@ -23,6 +33,7 @@ ScreenManagement:
         
         Label:
             markup: True
+            color: 0,0,0,1
             text: '[b]Body Mass Index Calculator[/b]'
             font_size: 40
             color: 0,0,0,1
@@ -30,6 +41,17 @@ ScreenManagement:
             
 <Gender_Screen>:
     name: 'gender'
+
+    
+
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
     FloatLayout:
         Button:
             color: 1,1,1,1
@@ -43,6 +65,7 @@ ScreenManagement:
 
         Label:
             markup: True
+            color:0,0,0,1
             text: '[b]Gender[/b]'
             font_size: 40
             color: 0,0,0,1
@@ -50,6 +73,16 @@ ScreenManagement:
 
 <Height_Screen>:
     name: 'height'
+
+
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
     FloatLayout:
         Button:
             color: 1,1,1,1
@@ -65,6 +98,7 @@ ScreenManagement:
         
         Label:
             markup: True
+            color: 0,0,0,1
             text: '[b]Height[/b]'
             font_size: 40
             color: 0,0,0,1
@@ -72,11 +106,22 @@ ScreenManagement:
 
 <Weight_Screen>:
     name: 'weight'
+
+    
+
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
     FloatLayout:
         Button:
             color: 1,1,1,1
             background_color: 0,0,1,1
-            text: 'Next'
+            text: 'Calculate'
             font_size: 40
             size_hint: 0.2,0.1
             pos_hint: {"right":0.9,"top":0.2}
@@ -86,6 +131,7 @@ ScreenManagement:
 
         Label:
             markup: True
+            color: 0,0,0,1
             text: '[b]Weight[/b]'
             font_size: 40
             color: 0,0,0,1
@@ -93,6 +139,17 @@ ScreenManagement:
 
 <Result_Screen>:
     name: 'result'
+
+    
+
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
     FloatLayout:
         Button:
             color: 1,1,1,1
@@ -107,6 +164,7 @@ ScreenManagement:
         
         Label:
             markup: True
+            color:0,0,0,1
             text: '[b]Result[/b]'
             font_size: 40
             color: 0,0,0,1
