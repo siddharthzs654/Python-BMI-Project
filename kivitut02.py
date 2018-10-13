@@ -12,26 +12,26 @@ from kivy.properties import ObjectProperty
  
 # Create a class for all screens in which you can include
 # helpful methods specific to that screen
-class ScreenOne(Screen):
+class HomeScreen(Screen):
+    pass
+
+class GenderScreen(Screen):
     male = ObjectProperty(True)
     female = ObjectProperty(False)
-    
+    gender = ""
     checkbox_is_active = ObjectProperty(False)
-    def gender_is(self, instance, value):
+    def gender_is(self, value):
             print(value)  
-
+            GenderScreen.gender = value
  
-class ScreenTwo(Screen):
+class HeightScreen(Screen):    
     pass
- 
- 
-# # The ScreenManager controls moving between screens
-# screen_manager = ScreenManager()
- 
-# # Add the screens to the manager and then supply a name
-# # that is used to switch screens
-# screen_manager.add_widget(ScreenOne(name="screen_one"))
-# screen_manager.add_widget(ScreenTwo(name="screen_two"))
+
+class WeightScreen(Screen):
+    pass
+
+class ResultScreen(Screen):
+    pass
 
 class ScreenManagement(ScreenManager):
     pass
