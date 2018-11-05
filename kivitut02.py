@@ -24,10 +24,14 @@ class GenderScreen(Screen):
             print(value)  
             GenderScreen.gender = value
  
-class HeightScreen(Screen):    
+class HeightScreen(Screen):  
+    def heightValue(self, height):
+        print(height)  
     pass
 
 class WeightScreen(Screen):
+    def weightValue(self, weight):
+        print(weight) 
     pass
 
 class ResultScreen(Screen):

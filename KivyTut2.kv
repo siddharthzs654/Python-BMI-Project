@@ -171,6 +171,7 @@ ScreenManagement:
 
         NextButton:
             on_press:
+                root.heightValue(str(height_id.value))
                 root.manager.transition.direction = 'left'
                 root.manager.current = 'weight_screen'
 
@@ -227,6 +228,7 @@ ScreenManagement:
             size_hint_x: 1
             size_hint_y: 0.1
             on_press:
+                root.weightValue(weight_id.value)
                 root.manager.transition.direction = 'left'
                 root.manager.current = 'result_screen'
 
