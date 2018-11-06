@@ -6,7 +6,7 @@ from kivy.core.window import Window
 
 
 
-class Home(Screen,Widget):
+class Home(Screen):
     pass
 
 class Gender_Screen(Screen):
