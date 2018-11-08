@@ -14,7 +14,7 @@ from kivy.properties import StringProperty
 # Create a class for all screens in which you can include
 # helpful methods specific to that screen
 w = 0
-h = 0
+h = 1
 g = ""
 r = 0
     
@@ -35,7 +35,7 @@ class GenderScreen(Screen):
 class HeightScreen(Screen):  
     def heightValue(self, height):
         global h
-        h = float(height)
+        h = float(height)/100
     pass
 
 class WeightScreen(Screen):
@@ -43,10 +43,18 @@ class WeightScreen(Screen):
         global w
         w = int(weight)
     
-        
     pass
 
 class ResultScreen(Screen):
+    bmi = float(0)
+    def calculateBMI(self, label):
+        r = float(w/(h**2))
+        ResultScreen.bmi = r
+        label.text = str(r)
+        print(label)
+        # print(self)
+        # calculated_bmi.text = str("Hello")
+        # return (r)
     pass
 
 class ScreenManagement(ScreenManager):
@@ -59,12 +67,3 @@ class KivyTut2App(App):
  
 sample_app = KivyTut2App()
 sample_app.run()
-
-
-
-
-def calculate():
-    r = float(w/(h**2))
-    print(r)
-
-calculate()

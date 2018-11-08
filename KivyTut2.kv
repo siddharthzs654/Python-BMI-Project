@@ -223,10 +223,7 @@ ScreenManagement:
                     cursor_image: "weight_cursor.png"
                     cursor_size: (100, 100)
 
-        Button:
-            text: "Next"
-            size_hint_x: 1
-            size_hint_y: 0.1
+        NextButton:
             on_press:
                 root.weightValue(weight_id.value)
                 root.manager.transition.direction = 'left'
@@ -234,6 +231,7 @@ ScreenManagement:
 
 <ResultScreen>:
     name:'result_screen'
+    on_pre_enter : root.calculateBMI(calculated_bmi)
     BoxLayout:
         orientation : "vertical"
 
@@ -248,3 +246,8 @@ ScreenManagement:
                 size_hint_y: 0.1
                 font_size : 50
                 size_hint_y: 0.1
+
+            CustLabel:
+                text: str(root.bmi)
+                id: calculated_bmi
+                font_size : 50
