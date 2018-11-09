@@ -8,6 +8,9 @@ from kivy.core.window import Window
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
  
+
+
+import Graph as gf
 # You can create your kv code in the Python file
 # Builder.load_string("bmi-kivy.kv")
  
@@ -46,6 +49,7 @@ class WeightScreen(Screen):
     pass
 
 class ResultScreen(Screen):
+    gf.graphs(h,w)    # Create a image of graph with name graphpic.png, Now display as you want
     bmi = float(0)
     def calculateBMI(self, label):
         r = float(w/(h**2))
