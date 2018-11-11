@@ -7,10 +7,6 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
-
-from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
-import matplotlib.pyplot as plt
-
  
 
 
@@ -50,30 +46,21 @@ class WeightScreen(Screen):
     def weightValue(self, weight):
         global w
         w = int(weight)
-        print(w)
     
     pass
 
 class ResultScreen(Screen):
     #gf.graphs(h,w)    # Create a image of graph with name graphpic.png, Now display as you want
     bmi = float(0)
-    category = " "
     def calculateBMI(self, label):
         r = float(w/(h**2))
-        r = round(r,2)
         ResultScreen.bmi = r
-        if (ResultScreen.bmi <=18.5):
-            ResultScreen.category = "Under Weight"
-        elif (ResultScreen.bmi <=24.9):
-            ResultScreen.category = "Normal Weight"
-        elif (ResultScreen.bmi <=29.9):
-            ResultScreen.category = "Over Weight"
-        else:
-            ResultScreen.category = "Obese"
-        label.text = str(ResultScreen.category) + " with " + str(r)
+        label.text = str(r)
         print(label)
         gf.graphs(h,w)
-
+        # print(self)
+        # calculated_bmi.text = str("Hello")
+        # return (r)
     pass
 
 class ScreenManagement(ScreenManager):

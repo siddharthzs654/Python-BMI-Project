@@ -4,10 +4,6 @@ from kivy.uix.boxlayout import BoxLayout
 import matplotlib.pyplot as plt
 
 
-
-
-
-
 def graphs(h, w):
     #Creating Coordinates For Graoh
     allheight=[0.5,0.75,1.0,1.25,1.5,1.75,2.0,2.25]
