@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 def graphs(h, w):
     #Creating Coordinates For Graoh
-    allheight=[0.5,0.75,1.0,1.25,1.5,1.75,2.0,2.25]
+    allheight=[0.5,0.75,1.0,1.25,1.5,1.75,2.0]
 
 
 
@@ -17,27 +17,25 @@ def graphs(h, w):
 
     normalweight=[]
     for i in range(0,len(allheight)):
-        temp=(24.5)*allheight[i]*allheight[i]
-        normalweight.append(round(temp,2))
+        temp=(24.9)*allheight[i]*allheight[i]
+        normalweight.append(round(temp,2)-underweight[i])
 
 
 
     overweight=[]
     for i in range(0,len(allheight)):
         temp=(29.9)*allheight[i]*allheight[i]
-        overweight.append(round(temp,2)) 
+        overweight.append(round(temp,2)-normalweight[i]) 
 
 
 
     obese=[]
     for i in range(0,len(allheight)):
         temp=(40)*allheight[i]*allheight[i]
-        obese.append(round(temp,2))
-
-
+        obese.append(round(temp,2)-overweight[i])
 
     #Plotting Graph
-    plt.plot([],[],color='g',label='Underweight',linewidth=5)
+    plt.plot([],[] ,color='g',label='Underweight',linewidth=5)
     plt.plot([],[],color='c',label='Normal',linewidth=5)
     plt.plot([],[],color='r',label='Overweight',linewidth=5)
     plt.plot([],[],color='b',label='Obesity',linewidth=5)
