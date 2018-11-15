@@ -1,11 +1,11 @@
 #: import CheckBox kivy.uix.checkbox
 
 ScreenManagement:
-    OptionalScreen:
     HomeScreen:
     GenderScreen:
     HeightScreen:
     WeightScreen:
+    OptionalScreen:
     ResultScreen:
 
 
@@ -309,14 +309,15 @@ ScreenManagement:
                     padding : 0, 30, 30, 40
                     size_hint_x : 0.1
                     TextInput:
+                        id : wbc
                         text: ""
                         center : self.parent.center
+                        multiline : False
                         hint_text : "per mcL of blood"
                         size_hint : None, None
                         size : 200, 30
-
-                
-
+                        on_text_validate : root.getWbc(wbc.text) 
+            
             BoxLayout:
                 orientation: "horizontal"
                 size_hint_x : 1
@@ -331,7 +332,7 @@ ScreenManagement:
                     size_hint_x: 0.1
                     orientation: "horizontal"
                     min: 0
-                    max: 10
+                    max: 25
                     value: 0
                     step: 0.01
                     value_tracker:"true"
@@ -348,15 +349,19 @@ ScreenManagement:
                     padding : 0, 30, 30, 40
                     size_hint_x : 0.1
                     TextInput:
+                        id: platelets
                         text: ""
                         center : self.parent.center
+                        multiline : False
                         hint_text : "μL"
                         size_hint : None, None
                         size : 200, 30
+                        on_text_validate : root.getPlatelets(platelets.text)
 
         
         NextButton:
             on_press:
+                root.result(rbc.value, hb.value)
                 root.manager.transition.direction = 'left'
                 root.manager.current = 'result_screen'
 
@@ -369,23 +374,24 @@ ScreenManagement:
 
         BoxLayout:
             orientation: "vertical"
-            size_hint_y: 0.2
             spacing:10
             
             CustLabel:
                 text: str("Results")
                 color: 0,0,0,1
-                size_hint_y: 0.1
                 font_size : 50
-                size_hint_y: 0.2
-
-            CustLabel:
-                text: " "
-                id: calculated_bmi
-                font_size : 30
                 size_hint_y: 0.1
+
             BoxLayout:
-                size_hint_y: 0.7
-                Image:
-                    id:calculateBmiImg
-                    source: "data.png"
+                orientation:"horizontal"
+                size_hint_y: 0.8
+                CustLabel:
+                    text: " "
+                    id: calculated_bmi
+                    font_size : 20
+                    size_hint_x: 0.35
+                BoxLayout:
+                    size_hint_x:0.65
+                    Image:
+                        id:calculateBmiImg
+                        source: "data.png"
