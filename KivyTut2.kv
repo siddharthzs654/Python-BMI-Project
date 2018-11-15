@@ -1,6 +1,7 @@
 #: import CheckBox kivy.uix.checkbox
 
 ScreenManagement:
+    OptionalScreen:
     HomeScreen:
     GenderScreen:
     HeightScreen:
@@ -251,6 +252,111 @@ ScreenManagement:
         NextButton:
             on_press:
                 root.weightValue(weight_id.value)
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'optional_screen'
+
+<OptionalScreen>:
+    name: 'optional_screen'
+    BoxLayout:
+        orientation : "vertical"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: 0.2
+            spacing:10
+            
+            CustLabel:
+                text: str("OPTIONAL DATA")
+                color: 0,0,0,1
+                size_hint_y: 0.1
+                font_size : 50
+                size_hint_y: 0.1
+
+
+        BoxLayout:
+            orientation : "vertical"
+            size_hint_y: 0.6
+            padding : 40, 80
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_x : 1
+
+                CustLabel:
+                    text: "RBC = " + str(round(rbc.value, 2)) + " million mcL"
+                    font_size : sp(20)
+                    size_hint_x: 0.1
+
+                Slider:
+                    id: rbc
+                    size_hint_x: 0.1
+                    orientation: "horizontal"
+                    min: 0
+                    max: 10
+                    value: 0
+                    step: 0.01
+                    value_tracker:"true"
+                    value_tracker_color : (1, 0, 0, 1)
+                    cursor_image: "weight_cursor.png"
+                    cursor_size: (50, 50)
+
+                CustLabel:
+                    text: "WBC = "
+                    font_size : sp(20)
+                    size_hint_x: 0.1
+                
+                BoxLayout:
+                    padding : 0, 30, 30, 40
+                    size_hint_x : 0.1
+                    TextInput:
+                        text: ""
+                        center : self.parent.center
+                        hint_text : "per mcL of blood"
+                        size_hint : None, None
+                        size : 200, 30
+
+                
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_x : 1
+
+                CustLabel:
+                    text: "HB = " + str(round(hb.value, 2)) + " g/dL"
+                    font_size : sp(20)
+                    size_hint_x: 0.1
+
+                Slider:
+                    id: hb
+                    size_hint_x: 0.1
+                    orientation: "horizontal"
+                    min: 0
+                    max: 10
+                    value: 0
+                    step: 0.01
+                    value_tracker:"true"
+                    value_tracker_color : (1, 0, 0, 1)
+                    cursor_image: "weight_cursor.png"
+                    cursor_size: (50, 50)
+
+                CustLabel:
+                    text: "Platelets = "
+                    font_size : sp(20)
+                    size_hint_x: 0.1
+                
+                BoxLayout:
+                    padding : 0, 30, 30, 40
+                    size_hint_x : 0.1
+                    TextInput:
+                        text: ""
+                        center : self.parent.center
+                        hint_text : "μL"
+                        size_hint : None, None
+                        size : 200, 30
+
+        
+        NextButton:
+            on_press:
                 root.manager.transition.direction = 'left'
                 root.manager.current = 'result_screen'
 

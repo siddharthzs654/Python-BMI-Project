@@ -110,6 +110,9 @@ class ResultScreen(Screen):
 
     pass
 
+class OptionalScreen(Screen):
+    pass
+
 class ScreenManagement(ScreenManager):
     pass
  
