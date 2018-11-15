@@ -21,18 +21,17 @@ def graphs(h, w):
         normalweight.append(round(temp,2)-underweight[i])
 
 
-
     overweight=[]
     for i in range(0,len(allheight)):
         temp=(29.9)*allheight[i]*allheight[i]
-        overweight.append(round(temp,2)-normalweight[i]) 
-
+        overweight.append(round(temp,2)-normalweight[i]-underweight[i]) 
+    
 
 
     obese=[]
     for i in range(0,len(allheight)):
         temp=(40)*allheight[i]*allheight[i]
-        obese.append(round(temp,2)-overweight[i])
+        obese.append(round(temp,2)-overweight[i]-normalweight[i]-underweight[i])
 
     #Plotting Graph
     plt.plot([],[] ,color='g',label='Underweight',linewidth=5)
