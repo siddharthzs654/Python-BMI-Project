@@ -52,7 +52,6 @@ class HomeScreen(Screen):
                 popup.open()
 
     def shouldGo(self):
-        print("hello")
         global age, name
         if(age == "" or name == ""):
             HomeScreen.errorMsg()
@@ -61,7 +60,6 @@ class HomeScreen(Screen):
             return True
 
     def errorMsg():
-        print("hey")
         popup = Popup(title='Error',
                 content=Label(text='Fill All the values' ),
                 size_hint=(None, None), size=(400, 100))
@@ -223,5 +221,5 @@ class KivyFITNESSApp(App):
         Window.clearcolor = (1, 1, 1, 1)
         return
  
-sample_app = KivyTut2App()
-sample_app.run()
+app = KivyFITNESSApp()
+app.run()

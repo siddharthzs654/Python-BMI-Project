@@ -29,7 +29,6 @@ def graphs(h, w):
     obese=[]
     for i in range(0,len(allheight)):
         obese.append(200-overweight[i]-normalweight[i]-underweight[i])
-    print(obese)
 
     #Plotting Graph
     plt.plot([],[] ,color='g',label='Underweight',linewidth=5)
