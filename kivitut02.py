@@ -6,14 +6,62 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from kivy.properties import ObjectProperty
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
+
 import Graph as gf
 
 w = 0
 h = 1
 g = ""
 r = 0
+name = ""
+age = ""
     
 class HomeScreen(Screen):
+    def validateName(self, nameInput):
+        global name
+        name = nameInput
+        print(name)
+        if(name == ""):
+            popup = Popup(title='Error',
+                    content=Label(text='Name can\'t be empty' ),
+                    size_hint=(None, None), size=(400, 100))
+            popup.open()
+
+    def validateAge(self, ageInput):
+        global age
+        
+        if(ageInput == ""):
+            popup = Popup(title='Error',
+                    content=Label(text='Age can\'t be empty' ),
+                    size_hint=(None, None), size=(400, 100))
+            popup.open()
+        else:
+            try:
+                age = int(ageInput)
+            except:
+                popup = Popup(title='Error',
+                        content=Label(text='Age can only contain numbers' ),
+                        size_hint=(None, None), size=(400, 100))
+                popup.open()
+
+    def shouldGo(self):
+        print("hello")
+        global age, name
+        if(age == "" or name == ""):
+            HomeScreen.errorMsg()
+            return False
+        else:
+            return True
+
+    def errorMsg():
+        print("hey")
+        popup = Popup(title='Error',
+                content=Label(text='Fill All the values' ),
+                size_hint=(None, None), size=(400, 100))
+        popup.open()
+        
     pass
 
 class GenderScreen(Screen):

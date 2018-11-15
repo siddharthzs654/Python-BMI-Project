@@ -35,31 +35,60 @@ ScreenManagement:
             size: self.size
         
     BoxLayout:
-        orientation: "vertical"
+        orientation:"horizontal"
 
-        # BoxLayout:
-        #     orientation: "vertical"
-        #     size_hint_y: 0.8
-        #     spacing:10
-            
-        #     CustLabel:
-        #         text: str("BODY MASS INDEX")
-        #         color: 0,0,0,1
-        #         size_hint_y: 0.1
-        #         font_size : 50
+        BoxLayout:
+            orientation: "vertical"
+                    
+            Button:
+                on_press:
+                    root.manager.current = 'gender_screen' if root.shouldGo() else 'home_screen'
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 0.5
+                text: "CHECK\nYOUR\nBMI"
+                size_hint_x: 0.8
+                size_hint_y: 0.1
+                font_size : 50
+                background_color: 0,0,1,1
+                id: checkBtn
                 
-        Button:
-            on_press:
-                root.manager.transition.direction = 'left'
-                root.manager.transition.duration = 0.5
-                root.manager.current = 'gender_screen'
-            text: "CHECK\nYOUR\nBMI"
-            size_hint_x: 0.4
-            size_hint_y: 0.1
-            font_size : 50
-            background_color: 0,0,1,1
- 
 
+        BoxLayout:
+            orientation: "vertical"
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y : 0.5
+                padding: 20, 240
+
+                Label:
+                    text : "Enter Information"
+                    size_hint_y : 0.15    
+                    color: 0, 0, 0, 1
+                    font_size: 20
+                    size_hint_x : 0.2
+
+                TextInput:
+                    text : ""
+                    size_hint_x : 0.8
+                    size_hint_y : 0.1
+                    multiline: False
+                    id : name
+                    hint_text : "ENTER YOUR NAME"
+                    on_text_validate : root.validateName(name.text)  
+
+                Label:
+                    text : " "
+                    size_hint_y : 0.05
+
+                TextInput:
+                    text : ""
+                    size_hint_x : 0.8
+                    size_hint_y : 0.1
+                    multiline: False   
+                    id : age  
+                    hint_text : "ENETR YOU AGE" 
+                    on_text_validate : root.validateAge(age.text)    
 
 <GenderScreen>:
     name: 'gender_screen'
@@ -160,11 +189,6 @@ ScreenManagement:
                     size_hint_y: 0.3
 
                 BoxLayout:
-                    # canvas.before:
-                    #     Rectangle:
-                    #         pos: self.pos
-                    #         size: self.size
-                    #         source: root.printTheGender()
                     CustLabel:
                         id : ok
                         text: ""
