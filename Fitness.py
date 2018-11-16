@@ -64,8 +64,6 @@ class HomeScreen(Screen):
                 content=Label(text='Fill All the values' ),
                 size_hint=(None, None), size=(400, 100))
         popup.open()
-        
-    pass
 
 class GenderScreen(Screen):
     gender = ""
@@ -81,15 +79,12 @@ class HeightScreen(Screen):
         global h
         h = float(height)/100
         print(h)
-    pass
 
 class WeightScreen(Screen):
     def weightValue(self, weight):
         global w
         w = int(weight)
         print(w)
-    
-    pass
 
 class OptionalScreen(Screen):
     def getWbc(self, wbcInput):
@@ -146,7 +141,9 @@ class OptionalScreen(Screen):
         rbc = float(rbcIN)
         hb = float(hbIN)
         # RBC CALCULATIONS
-        if(g == "male"):
+        if(rbc == 0):
+            rbc = 0
+        elif(g == "male"):
             if(rbc<4.7):
                 rbc="Low"
             elif(rbc<6.1):
@@ -162,7 +159,9 @@ class OptionalScreen(Screen):
                 rbc="High"
 
         # HB CALCULATIONS
-        if(g == "male"):
+        if(hb == 0):
+            hb = 0
+        elif(g == "male"):
             if(hb<13.5):
                 hb="Low"
             elif(hb<17.5):
@@ -176,7 +175,6 @@ class OptionalScreen(Screen):
                 hb="Normal"
             else:
                 hb="High"
-    pass
 
 class ResultScreen(Screen):
     #gf.graphs(h,w)    # Create a image of graph with name graphpic.png, Now display as you want
@@ -200,18 +198,18 @@ class ResultScreen(Screen):
         # Making the report
 
         global report
-        report = "Dear "+name+"\nYou are "+str(ResultScreen.category) + " with " + str(r)+"."
-        if(rbc != ""):
+        report = "Dear "+name+"\nYou are "+str(ResultScreen.category) + "\nwith " + str(r)+"."
+        if(rbc != "" and int(rbc)!=0):
+            print(rbc)
             report+= "\nYour RBC count is " + rbc
         if(wbc != ""):
             report+= "\nYour WBC count is " + wbc
-        if(hb != ""):
-            report+= "\nYour Hemoglobin is " + hb
+        if(hb != "" and int(hb)!=0):
+            print(hb)
+            report+= "\nYour Haemoglobin is " + hb
         if(platelets != ""):
-            report+= "\nYour platelets count is " + platelets
+            report+= "\nYour Platelets count is " + platelets
         label.text = report
-
-    pass
 
 class ScreenManagement(ScreenManager):
     pass
